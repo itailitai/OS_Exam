@@ -54,7 +54,7 @@ window.onload = function () {
     changePDF(pages_in_summary[currentIndex]);
     // subject.innerHTML = ppt_subjects[currentIndex];
     document.querySelectorAll("#checklist label")[
-      currentIndex - 1
+      (currentIndex - 1 + pptURLs.length) % pptURLs.length
     ].style.fontWeight = "normal";
     document.querySelectorAll("#checklist label")[
       currentIndex
@@ -67,10 +67,10 @@ window.onload = function () {
     changePDF(pages_in_summary[currentIndex]);
     // subject.innerHTML = ppt_subjects[currentIndex];
     document.querySelectorAll("#checklist label")[
-      currentIndex - 1
+      currentIndex
     ].style.fontWeight = "bold";
     document.querySelectorAll("#checklist label")[
-      currentIndex
+      (currentIndex + 1) % pptURLs.length
     ].style.fontWeight = "normal";
   });
 
