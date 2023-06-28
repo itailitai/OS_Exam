@@ -30,7 +30,7 @@ window.onload = function () {
     "Files",
   ];
 
-  pages_in_summary = [0, 16, 22, 31, 36, 41, 45, 49, 55, 61, 77, 65];
+  pages_in_summary = [0, 16, 22, 31, 38, 41, 45, 49, 55, 61, 77, 65];
   var currentIndex = 0;
 
   // Set the PDF file to display
