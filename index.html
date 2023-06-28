@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Website</title>
+    <style>
+
+        html,body{
+            
+            height: 100%;
+        overflow: hidden;
+        }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+      }
+      .pdf,
+      .ppt {
+     
+        width: 50%;
+        height: 100%; /* 100% of their parent's height */
+      }
+
+      #buttons{
+        position: absolute;
+    top: 5px;
+    right: -180px;
+    z-index: 5;
+    background: #e5e5e5;
+    padding: 5px 0px 5px 25px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 180px;
+    transition: .25s ease all;
+      }
+      #buttons::before{
+        content: "☰";
+    position: absolute;
+    left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+
+      }
+
+      #buttons:hover{
+        right: 0px;
+      }
+
+      #buttons button{
+        border: none;
+    padding: 5px;
+    background: #2d2d2d;
+    color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pdf">
+        <embed
+          id="pdfFile"
+          type="application/pdf"
+          width="100%"
+          height="100%"
+        />
+      </div>
+      <div class="ppt">
+        <iframe id="pptFile" width="100%" height="100%"></iframe>
+      </div>
+    </div>
+    <div id="buttons">
+      <div><button id="nextButton">הרצאה הבאה</button>
+        <button id="prevButton">הרצאה קודמת</button></div>
+     <span id='lecture_subject'></span>
+      <div id="checklist"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
