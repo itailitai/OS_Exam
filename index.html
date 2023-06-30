@@ -11,17 +11,34 @@
             height: 100%;
         overflow: hidden;
         }
-      .container {
+      /* .container {
         display: flex;
         justify-content: space-between;
         height: 100%;
-      }
-      .pdf,
+      } 
+       .pdf,
       .ppt {
-     
+        
         width: 50%;
-        height: 100%; /* 100% of their parent's height */
-      }
+        height: 100%;  
+      } */
+
+      .container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+.pdf,
+.ppt {
+  width: 100%;
+  height: 100%;
+}
+
+iframe,embed{
+  /* pointer-events: none; */
+}
 
       #buttons{
         position: absolute;
@@ -63,18 +80,32 @@
     background: #2d2d2d;
     color: white;
       }
+
+      #checklist input:nth-child(10) {
+  border: red;
+  font-weight: bold;
+}
+
+#divider {
+  font-weight: bold;
+  border-bottom: 1px dashed black;
+  border-top: 1px dashed black;
+}
+
+#slider-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 200px; /* adjust as needed */
+}
     </style>
   </head>
   <body>
     <div class="container">
       <div class="pdf">
-        <embed
-          id="pdfFile"
-          type="application/pdf"
-          width="100%"
-          height="100%"
-        />
+        <embed id="pdfFile" type="application/pdf" width="100%" height="100%" />
       </div>
+    
       <div class="ppt">
         <iframe id="pptFile" width="100%" height="100%"></iframe>
       </div>
@@ -82,6 +113,12 @@
     <div id="buttons">
       <div><button id="nextButton">הרצאה הבאה</button>
         <button id="prevButton">הרצאה קודמת</button></div>
+        <div id="slider-container">
+          <span id="pdf-percentage">50%</span>
+          <input type="range" min="0" max="100" value="50" id="slider" style="width:50%">
+          <span id="ppt-percentage">50%</span>
+        </div>
+
      <span id='lecture_subject'></span>
       <div id="checklist"></div>
       </div>

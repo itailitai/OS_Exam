@@ -1,4 +1,13 @@
 window.onload = function () {
+  document.getElementById("slider").addEventListener("input", function (event) {
+    var sliderValue = event.target.value;
+    document.querySelector(".pdf").style.width = sliderValue + "%";
+    document.querySelector(".ppt").style.width = 100 - sliderValue + "%";
+
+    document.getElementById("pdf-percentage").textContent = sliderValue + "%";
+    document.getElementById("ppt-percentage").textContent =
+      100 - sliderValue + "%";
+  });
   // Replace these URLs with the actual paths to your files
   var pdfURL = "https://deychev.com/cs/os.pdf";
   var pptURLs = [
@@ -14,6 +23,17 @@ window.onload = function () {
     "ppt/lect10.pdf",
     "ppt/lect11.pdf",
     "ppt/lect12.pdf",
+    "ppt/rec2.pdf",
+    "ppt/rec3.pdf",
+    "ppt/rec4.pdf",
+    "ppt/rec5.pdf",
+    "ppt/rec6.pdf",
+    "ppt/rec7.pdf",
+    "ppt/rec8.pdf",
+    "ppt/rec9.pdf",
+    "ppt/rec10.pdf",
+    "ppt/rec11.pdf",
+    "ppt/rec12.pdf",
   ];
   ppt_subjects = [
     "Introduction",
@@ -28,18 +48,32 @@ window.onload = function () {
     "Locality&Large Memories",
     "Virtualization",
     "Files",
+    "TA - Interrupts",
+    "TA -Processes&Threads",
+    "TA -Working w/ Threads",
+    "TA -Concurrency",
+    "TA -Scheduling",
+    "TA -Sockets",
+    "TA -I/O",
+    "TA -Memory Managment",
+    "TA -Replacement Algo.",
+    "TA -Virtualization&ICP",
+    "TA -File System",
   ];
 
-  pages_in_summary = [0, 16, 22, 31, 38, 41, 45, 49, 55, 61, 77, 65];
+  pages_in_summary = [
+    0, 16, 22, 31, 38, 41, 45, 49, 55, 61, 77, 65, 95, 100, 104, 110, 114, 135,
+    0, 116, 119, 130, 125,
+  ];
   var currentIndex = 0;
 
   // Set the PDF file to display
   var pdfEmbed = document.getElementById("pdfFile");
-  pdfEmbed.src = pdfURL + "#toolbar=0&navpanes=0&scrollbar=0";
+  pdfEmbed.src = pdfURL;
 
   // Set the PowerPoint file to display
   var pptEmbed = document.getElementById("pptFile");
-  pptEmbed.src = pptURLs[currentIndex] + "#toolbar=0&navpanes=0&scrollbar=0";
+  pptEmbed.src = pptURLs[currentIndex];
 
   //   var subject = document.getElementById("lecture_subject");
   //   subject.innerHTML = ppt_subjects[currentIndex];
@@ -79,6 +113,12 @@ window.onload = function () {
   var checklistDiv = document.getElementById("checklist");
 
   ppt_subjects.forEach(function (subject) {
+    if (subject == "TA - Interrupts") {
+      var divider = document.createElement("div");
+      divider.id = "divider";
+      divider.innerHTML = "Recitations";
+      checklistDiv.appendChild(divider);
+    }
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.name = "name";
